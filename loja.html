@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <script src="https://kit.fontawesome.com/0e7333d88f.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja - Oktoplus Gaming</title>
+    <link rel="stylesheet" href="style/loja.css">
+    <link rel="icon" href="assets/icon.png">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="logo">
+            <a href="inicio.html"><img class="logo-img" src="./assets/logookt.png" alt="logo"></a>
+        </nav>
+
+        <nav class="menu">
+            <a href="inicio.html">início</a>
+            <a href="loja.html" style="color: #e5007d">loja</a>
+            <a href="quemsomos.html">quem somos</a>
+            <a href="mailto:oktoplusgaming@gmail.com">contato</a>
+            <a href="login.html">login</a>
+        
+            <div class="busca-container">
+                <i class="fa fa-search" id="lupa" style="cursor: pointer;"></i>
+                <input type="text" id="searchBar" placeholder="Pesquisar produto..." onkeyup="busca()">
+            </div>
+        </nav>
+
+        <nav class="sociais">
+            <a href="https://www.instagram.com/oktoplus.gaming/" target="_blank"><button><i class="fa-brands fa-instagram"></i></button></a>
+            <a href="https://www.youtube.com/@Oktoplus.Gaming" target="_blank"><button><i class="fa-brands fa-youtube"></i></button></a>
+            <a href="https://www.tiktok.com/@oktoplus.gaming" target="_blank"><button><i class="fa-brands fa-tiktok"></i></button></a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="lista">
+            <div class="item">
+                <img src="assets/loja/bone.png" alt="Boné Oktoplus">
+                <h2>Boné Oktoplus</h2>
+                <div class="preco">R$40</div>
+                <button onclick="window.location.href='bone.html'">Ver detalhes</button>
+            </div>
+
+            <div class="item">
+                <img src="assets/loja/caneca.png" alt="Caneca Oktoplus">
+                <h2>Caneca Oktoplus</h2>
+                <div class="preco">R$30</div>
+                <button onclick="window.location.href='caneca.html'">Ver detalhes</button>
+            </div>
+
+            <div class="item">
+                <img src="assets/loja/garrafa.png" alt="Garrafa Oktoplus">
+                <h2>Garrafa Oktoplus</h2>
+                <div class="preco">R$25</div>
+                <button onclick="window.location.href='garrafa.html'">Ver detalhes</button>
+            </div>
+
+            <div class="item">
+                <img src="assets/loja/camisa1.jpg" alt="Camisa Oktoplus 2024">
+                <h2>Camisa Oktoplus 2024</h2>
+                <div class="preco">R$52</div>
+                <button onclick="window.location.href='camisa.html'">Ver detalhes</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h3 class="texto-footer"> Direitos de Autor © 2024 OKTOPLUS GAMING.</h3>
+    </footer>
+
+    <script>
+        document.getElementById('lupa').addEventListener('click', function () {
+            var buscaBar = document.getElementById('searchBar');
+            var container = document.querySelector('.busca-container');
+            container.classList.toggle('active');
+        });
+
+        function busca() {
+            var input = document.getElementById('searchBar').value.toLowerCase();
+            var itens = document.querySelectorAll('.lista .item');
+
+            itens.forEach(function (item) {
+                var nome = item.querySelector('h2').textContent.toLowerCase();
+                if (nome.includes(input)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
